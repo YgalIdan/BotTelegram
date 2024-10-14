@@ -10,14 +10,26 @@ import boto3
 import requests
 
 
-images_bucket = os.environ['BUCKET_NAME']
-queue_name = os.environ['SQS_QUEUE_NAME']
+# images_bucket = os.environ['BUCKET_NAME']
+images_bucket = "botphotoproject"
+# queue_name = os.environ['SQS_QUEUE_NAME']
+queue_name = "BotPhotoProject"
 
-sqs_client = boto3.client('sqs', region_name='YOUR_REGION_HERE')
+sqs_client = boto3.client('sqs', region_name='us-east-1')
+s3_client = boto3.client('s3')
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
 with open("data/coco128.yaml", "r") as stream:
     names = yaml.safe_load(stream)['names']
 
+def upload_file(file_name, bucket, object_name):
+    
+    try:
+        response = s3_client.upload_file(file_name, bucket, object_name)
+    except boto3.ClientError as e:
+        logger.error(e)
+        return False
+    return True
 
 def consume():
     while True:
@@ -34,13 +46,15 @@ def consume():
             message_dict = json.loads(message)
 
             # Receives a URL parameter representing the image to download from S3
-            img_name = ... # TODO extract from `message_dict`
-            chat_id = ... # TODO extract from `message_dict`
+            img_name = message_dict["image_name"]
+            chat_id = message_dict["chat_id"]
             local_img_dir = 'tempImages'
-            os.makedirs(local_img_dir, exist_ok=True)
+            os.makedirs(f"{local_img_dir}/{chat_id}", exist_ok=True)
             original_img_path = os.path.join(local_img_dir, img_name)
 
             # TODO download img_name from S3, store the local image path in original_img_path
+            s3_client.download_file(images_bucket, img_name, original_img_path)
+            
 
             logger.info(f'prediction: {prediction_id}/{original_img_path}. Download img completed')
 
@@ -61,13 +75,15 @@ def consume():
             predicted_img_path = Path(f'static/data/{prediction_id}/{img_name}')
 
             # Upload the predicted image to S3
-            predicted_img_s3_path = f'predictions/{prediction_id}/{img_name}'
+            predicted_img_s3_path = f'tempImages/{img_name}'
 
             # TODO Uploads the predicted image (predicted_img_path) to S3 (be careful not to override the original image).
+            upload_file(predicted_img_s3_path, images_bucket, f"{img_name}-prediction.png")
 
             # Parse prediction labels and create a summary
-            pred_summary_path = Path(f'static/data/{prediction_id}/labels/{img_name.split(".")[0]}.txt')
+            pred_summary_path = Path(f'static/data/{prediction_id}/labels/{img_name.split("/")[-1][:-4]}.txt')
             if pred_summary_path.exists():
+                logger.info(pred_summary_path)
                 with open(pred_summary_path) as f:
                     labels = f.read().splitlines()
                     labels = [line.split(' ') for line in labels]
@@ -91,10 +107,12 @@ def consume():
                 }
 
                 # TODO store the prediction_summary in a DynamoDB table
+                table = dynamodb.Table('BotPhotoProject')
+                table.put_item(Item=prediction_summary)
 
 
                 # TODO perform a GET request to Polybot to `/results` endpoint
-                loadbalancer_domain = ...
+                loadbalancer_domain = 'https://legal-regularly-midge.ngrok-free.app'
                 try:
                     response = requests.post(f'{loadbalancer_domain}/results', params={'prediction_id': prediction_id})
                     response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
