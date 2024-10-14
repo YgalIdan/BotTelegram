@@ -5,8 +5,18 @@ import time
 from telebot.types import InputFile
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
+import datetime
 
 import json
+
+def upload_file(file_name, bucket, object_name):
+    s3_client = boto3.client('s3')
+    try:
+        response = s3_client.upload_file(file_name, bucket, object_name)
+    except boto3.ClientError as e:
+        logger.error(e)
+        return False
+    return True
 
 class Bot:
 
@@ -71,23 +81,23 @@ class Bot:
 class ObjectDetectionBot(Bot):
     def handle_message(self, msg):
         logger.info(f'Incoming message: {msg}')
-
+        chat_id = msg['chat']['id']
+    
         if self.is_current_msg_photo(msg):
             photo_path = self.download_user_photo(msg)
 
-            chat_id = msg['chat']['id']
-
             # TODO upload photo_path to S3
-            bucket_name = ...
-            image_name = ...
+            
+            bucket_name = "botphotoproject"
+            image_name = f"{chat_id}/{datetime.datetime.now()}.png"
+            upload_file(photo_path, bucket_name, image_name)
             logger.info(f'Image {image_name} uploaded to S3 bucket {bucket_name}.')
 
             self.send_text(chat_id, "Image successfully uploaded to S3.")
 
             # TODO send a job to the SQS queue
-
-            sqs_client = ...
-            queue_url = ...
+            sqs_client = boto3.client('sqs', region_name='us-east-1')
+            queue_url = "BotPhotoProject"
 
             # Create message body
             message_body = {
@@ -101,3 +111,5 @@ class ObjectDetectionBot(Bot):
             )
             logger.info(f'Message sent to SQS queue with response: {response}')
             self.send_text(chat_id, "Your image is being processed. Please wait...")
+        else:
+            self.send_text(chat_id, "Hi! how i can help you?")
