@@ -112,7 +112,7 @@ def consume():
 
 
                 # TODO perform a GET request to Polybot to `/results` endpoint
-                loadbalancer_domain = 'https://legal-regularly-midge.ngrok-free.app'
+                loadbalancer_domain = 'https://polybot2.ygdn.online'
                 try:
                     response = requests.post(f'{loadbalancer_domain}/results', params={'prediction_id': prediction_id})
                     response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
