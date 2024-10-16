@@ -6,7 +6,6 @@ from telebot.types import InputFile
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
 import datetime
-
 import json
 
 def upload_file(file_name, bucket, object_name):
