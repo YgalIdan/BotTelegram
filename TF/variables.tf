@@ -38,3 +38,8 @@ variable "sqs_name" {
 variable "dynamodb_name" {
    type        = string
 }
+
+# IAM
+variable "arn_roles_to_iam" {
+   type        =  list
+}
