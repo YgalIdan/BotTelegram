@@ -31,7 +31,7 @@ def get_secret():
 # TODO load TELEGRAM_TOKEN value from Secret Manager
 TELEGRAM_TOKEN = get_secret()
 # TELEGRAM_APP_URL = os.environ['TELEGRAM_APP_URL']
-TELEGRAM_APP_URL = 'https://polybot2.ygdn.online'
+TELEGRAM_APP_URL = 'https://polybot.ygdn.online'
 
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 
