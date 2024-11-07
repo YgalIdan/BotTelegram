@@ -30,3 +30,4 @@ jobs:
           cd TF/
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
+          echo $(terraform output -raw ip_ec2)

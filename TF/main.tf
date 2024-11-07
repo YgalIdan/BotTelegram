@@ -197,3 +197,7 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
     version = "$Latest"
   }
 }
+
+output "ip_ec2" {
+  value       = aws_instance.BotTelegram_ec2.public_ip
+}
