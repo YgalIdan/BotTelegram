@@ -28,4 +28,4 @@ jobs:
         run: |
           cd TF/
           terraform init
-          terraform apply -var-file region_us-east-tfvars
+          terraform apply -var-file region_us-east-1.tfvars
