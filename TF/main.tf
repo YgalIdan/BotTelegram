@@ -203,5 +203,5 @@ output "ip_ec2_list_botTelegram" {
 }
 
 output "ip_ec2_list_yolov5" {
-  value       = [aws_launch_template.BotTelegram_template.ipv4_addresses]
+  value       = aws_launch_template.BotTelegram_template.ipv4_addresses
 }
