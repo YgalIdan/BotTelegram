@@ -198,6 +198,10 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
   }
 }
 
-output "ip_ec2_list" {
+output "ip_ec2_list_botTelegram" {
   value       = [for instance in aws_instance.BotTelegram_ec2 : instance.public_ip]
+}
+
+output "ip_ec2_list_yolov5" {
+  value       = [aws_launch_template.BotTelegram_template.ipv4_addresses]
 }
