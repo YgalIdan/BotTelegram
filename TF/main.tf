@@ -199,5 +199,5 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
 }
 
 output "ip_ec2" {
-  value       = aws_instance.BotTelegram_ec2.public_ip
+  value       = aws_instance.BotTelegram_ec2[count.index].public_ip
 }
