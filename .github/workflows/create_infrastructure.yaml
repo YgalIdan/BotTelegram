@@ -20,4 +20,6 @@ jobs:
           terraform -v
 
       - name: Create infrastructure on AWS 
-        run: terraform apply -var-file region_us-east-tfvars
+        run: |
+          cd TF/
+          terraform apply -var-file region_us-east-tfvars
