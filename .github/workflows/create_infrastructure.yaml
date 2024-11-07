@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout the repo code
         uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{secret.AWS_ACCESS_KEY_ID}}
+          AWS_SECRET_ACCESS_KEY: ${{secret.AWS_SECRET_ACCESS_KEY}}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SERCRET_ACCESS_KEY
         
       - name: Install TF
         run: |
