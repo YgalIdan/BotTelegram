@@ -198,6 +198,6 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
   }
 }
 
-output "ip_ec2" {
-  value       = aws_instance.BotTelegram_ec2[count.index].public_ip
+output "ip_ec2_list" {
+  value       = [for instance in aws_instance.BotTelegram_ec2 : instance.public_ip]
 }
