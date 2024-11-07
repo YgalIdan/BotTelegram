@@ -27,5 +27,5 @@ jobs:
       - name: Create infrastructure on AWS 
         run: |
           cd TF/
-          terraform init
+          terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
