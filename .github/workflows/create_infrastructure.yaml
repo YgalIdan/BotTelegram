@@ -6,7 +6,7 @@ on:
       - play
 
 jobs:
-  Create Infra:
+  CreateInfra:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo code
