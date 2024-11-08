@@ -207,7 +207,7 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
 data "aws_instances" "BotTelegram_yolov5" {
   filter {
     name  = "tag:Name"
-    value = ["BotTelegram-instance"]
+    values = ["BotTelegram-instance"]
   }
 }
 
