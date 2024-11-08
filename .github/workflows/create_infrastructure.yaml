@@ -29,6 +29,6 @@ jobs:
         run: |
           cd TF/
           terraform init -upgrade
-          terraform apply -var-file region_us-east-1.tfvars -auto-approve -target=aws_autoscaling_group.BotTelegram_autoscaling
+          terraform apply -var-file region_us-east-1.tfvars -auto-approve
           echo $(terraform output -raw ip_ec2_list_botTelegram)
           echo $(terraform output -raw ip_ec2_list_yolov5)
