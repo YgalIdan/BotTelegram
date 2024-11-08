@@ -187,7 +187,7 @@ resource "aws_launch_template" "BotTelegram_template" {
   }
   tag_specifications {
     resource_type = "instance"
-    tag           = {
+    tags           = {
       Name        = "BotTelegram-instance"
     }
   }
