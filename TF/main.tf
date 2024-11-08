@@ -222,6 +222,6 @@ output "ip_ec2_list_botTelegram" {
 }
 
 output "ip_ec2_list_yolov5" {
-  value = [for instance in data.aws_instance.BotTelegram_instances : instance.public_ip]
+  # value = [for instance in data.aws_instance.BotTelegram_instances : instance.public_ip]
   value = data.aws_instances.BotTelegram_yolov5.ids
 }
