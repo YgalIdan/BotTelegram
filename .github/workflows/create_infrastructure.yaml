@@ -32,3 +32,7 @@ jobs:
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
           echo $(terraform output -raw ip_ec2_list_botTelegram)
           echo $(terraform output -raw ip_ec2_list_yolov5)
+          aws ec2 describe-instances \
+          --filters "Name=tag:Name,Values=BotTelegram-instance" \
+          --query "Reservations[*].Instances[*].PublicIpAddress" \
+          --output text

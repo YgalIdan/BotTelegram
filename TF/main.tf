@@ -212,10 +212,10 @@ data "aws_instances" "BotTelegram_yolov5" {
   depends_on = [aws_autoscaling_group.BotTelegram_autoscaling]
 }
 
-data "aws_instance" "BotTelegram_instances" {
-  for_each = toset(data.aws_instances.BotTelegram_yolov5.ids)
-  instance_id = each.value
-}
+# data "aws_instance" "BotTelegram_instances" {
+#   for_each = toset(data.aws_instances.BotTelegram_yolov5.ids)
+#   instance_id = each.value
+# }
 
 output "ip_ec2_list_botTelegram" {
   value = [for instance in aws_instance.BotTelegram_ec2 : instance.public_ip]
