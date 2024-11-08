@@ -206,8 +206,8 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
 
 data "aws_instances" "BotTelegram_yolov5" {
   filter {
-    name  = "tag:Name"
-    values = ["BotTelegram-instance"]
+    name    = "tag:Name"
+    values  = ["BotTelegram-instance"]
   }
 }
 
@@ -216,5 +216,5 @@ output "ip_ec2_list_botTelegram" {
 }
 
 output "ip_ec2_list_yolov5" {
-  value       = [for instance in data.aws_instances.BotTelegram_yolov5.instances : instance.public_ip]
+  value       = [for id in data.aws_instances.BotTelegram_yolov5.ids : data.aws_instance.ec2_instance[id].public_ip]
 }
