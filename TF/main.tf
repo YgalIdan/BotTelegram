@@ -185,6 +185,12 @@ resource "aws_launch_template" "BotTelegram_template" {
   iam_instance_profile    {
     name  = aws_iam_instance_profile.BotTelegram_instanceprofile.name
   }
+  tag_specifications {
+    resource_type = "instance"
+    tag           = {
+      Name        = "BotTelegram-instance"
+    }
+  }
 }
 
 resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
@@ -198,10 +204,17 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
   }
 }
 
+data "aws_instances" "BotTelegram_yolov5" {
+  filter {
+    name  = "tag:Name"
+    value = ["BotTelegram-instance"]
+  }
+}
+
 output "ip_ec2_list_botTelegram" {
   value       = [for instance in aws_instance.BotTelegram_ec2 : instance.public_ip]
 }
 
 output "ip_ec2_list_yolov5" {
-  value       = aws_launch_template.BotTelegram_template.ipv4_addresses
+  value       = [for instance in data.aws_instances.BotTelegram_yolov5.instances : instance.public_ip]
 }
