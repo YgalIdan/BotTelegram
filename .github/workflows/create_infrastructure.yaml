@@ -44,15 +44,17 @@ jobs:
       - name: Create a hosts file with all targets
         run: |
           cd TF/
+          echo ${{secrets.KEY_PEM}} > key.pem
+          sudo chmod u+x key.pem
           echo "[BotTelegram]" > temp_hosts
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
           for ip in $ip_list; do
-            ssh -i ${{secrets.KEY_PEM}} ubuntu@$ip echo "Join to target"
+            ssh -i key.pem ubuntu@$ip "echo 'Join to target'"
             echo "$ip" >> temp_hosts
           done
           
           echo "[YOLOv5]" >> temp_hosts
-          ssh -i ${{secrets.KEY_PEM}} ubuntu@${{steps.get_ips.outputs.LIST_IP_YOLOV5}} "echo 'Join to target'"
+          ssh -i key.pem ubuntu@${{steps.get_ips.outputs.LIST_IP_YOLOV5}} "echo 'Join to target'"
           echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}} >> temp_hosts
           sudo mv temp_hosts /etc/ansible/hosts
       
