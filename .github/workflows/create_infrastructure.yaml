@@ -43,13 +43,13 @@ jobs:
 
       - name: Install Docker images per EC2
         run: |
-          echo "[BotTelegram]" > /etc/ansible/hosts
+          sudo echo "[BotTelegram]" > /etc/ansible/hosts
           cd TF/
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
           for ip in $ip_list; do
-            echo "$ip" >> /etc/ansible/hosts
+            sudo echo "$ip" >> /etc/ansible/hosts
           done
           
-          echo "[YOLOv5]" >> /etc/ansible/hosts
-          echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}} >> /etc/ansible/hosts
-          cat /etc/ansible/hosts
+          sudo echo "[YOLOv5]" >> /etc/ansible/hosts
+          sudo echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}} >> /etc/ansible/hosts
+          sudo cat /etc/ansible/hosts
