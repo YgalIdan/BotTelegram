@@ -33,12 +33,23 @@ jobs:
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
           echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
 
-      - name: Get ip's public for all EC2
+      - name: Install Ansible
         run: |
+          sudo apt update
+          sudo apt install software-properties-common
+          sudo add-apt-repository --yes --update ppa:ansible/ansible
+          sudo apt install ansible
+          ansible --version
+
+      - name: Install Docker images per EC2
+        run: |
+          echo "[BotTelegram]" > cat /etc/ansible/hosts
           cd TF/
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
           for ip in $ip_list; do
-            echo "$ip"
+            echo "$ip" >> cat /etc/ansible/hosts
           done
           
-          echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}}
+          echo "[YOLOv5]" >> cat /etc/ansible/hosts
+          echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}} >> cat /etc/ansible/hosts
+          cat /etc/ansible/hosts
