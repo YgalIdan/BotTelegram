@@ -31,8 +31,8 @@ jobs:
           cd TF/
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
-          echo "::set-output name=LIST_IP_BOTS::$(terraform output -json ip_ec2_list_botTelegram)"
-          echo "::set-output name=LIST_IP_YOLOV5::$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)"
+          echo "{LIST_IP_BOTS}={$(terraform output -json ip_ec2_list_botTelegram)}" >> $GITHUB_OUTPUT
+          echo "{LIST_IP_YOLOV5}={$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)}" >> $GITHUB_OUTPUT
 
       - name: Get ip's public for all EC2
         run: |
