@@ -34,5 +34,7 @@ jobs:
       - name: Get ip's public for all EC2
         run: |
           cd TF/
-          $(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
-          aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text
+          list_ip_bots=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
+          list_ip_yolo=aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text
+          echo $list_ip_bots
+          echo $list_ip_yolo
