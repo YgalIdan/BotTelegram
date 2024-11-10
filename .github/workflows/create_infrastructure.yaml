@@ -34,8 +34,8 @@ jobs:
       - name: Get ip's public for all EC2
         run: |
           cd TF/
-          ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> $GITHUB_ENV
-          for ip in $ip_list; do
+          ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> ${{env.LIST_IP}}
+          for ip in ${{env.LIST_IP}}; do
             echo "Instance IP: $ip"
           done
 
