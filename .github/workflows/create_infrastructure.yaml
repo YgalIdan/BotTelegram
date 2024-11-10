@@ -8,6 +8,9 @@ on:
 jobs:
   CreateInfra:
     runs-on: ubuntu-latest
+    env:
+      LIST_IP_BOTS: 0
+      LIST_IP_YOLOV5: 0
     steps:
       - name: Checkout the repo code
         uses: actions/checkout@v2
@@ -34,12 +37,12 @@ jobs:
       - name: Get ip's public for all EC2
         run: |
           cd TF/
-          ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> ${{vars.LIST_IP_BOTS}}
-          for ip in ${{vars.LIST_IP_BOTS}}; do
+          ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> $LIST_IP_BOTS
+          for ip in $LIST_IP_BOTS; do
             echo "Instance IP: $ip"
           done
 
           aws ec2 describe-instances \
           --filters "Name=tag:Name,Values=BotTelegram-instance" \
           --query "Reservations[*].Instances[*].PublicIpAddress" \
-          --output text >> ${{vars.LIST_IP_YOLOV5}}
+          --output text >> $LIST_IP_YOLOV5
