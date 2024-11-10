@@ -30,6 +30,12 @@ jobs:
           cd TF/
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
+          $(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> ${{vars.LIST_IP_BOTS}}
+          aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text >> ${{vars.LIST_IP_YOLOV5}}
+          for ip in ${{vars.LIST_IP_BOTS}}; do
+            echo "Instance IP: $ip"
+          done
+          echo ${{vars.LIST_IP_YOLOV5}}
 
       - name: Get ip's public for all EC2
         run: |
