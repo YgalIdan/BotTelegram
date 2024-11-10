@@ -45,7 +45,7 @@ jobs:
         run: |
           cd TF/
           echo "${{secrets.KEY_PEM}}" > key.pem
-          sudo chmod u+x key.pem
+          sudo chmod 400 key.pem
           echo "[BotTelegram]" > temp_hosts
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
           for ip in $ip_list; do
