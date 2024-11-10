@@ -43,8 +43,8 @@ jobs:
 
       - name: Install Docker images per EC2
         run: |
-          echo "[BotTelegram]" > temp_hosts
           cd TF/
+          echo "[BotTelegram]" > temp_hosts
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
           for ip in $ip_list; do
             echo "$ip" >> temp_hosts
