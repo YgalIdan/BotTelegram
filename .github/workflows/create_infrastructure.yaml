@@ -52,6 +52,9 @@ jobs:
           
           echo "[YOLOv5]" >> temp_hosts
           echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}} >> temp_hosts
-          cat temp_hosts
           sudo mv temp_hosts /etc/ansible/hosts
-          sudo cat /etc/ansible/hosts
+      
+      - name: Instal docker images per EC2
+        run: |
+          cd Ansible/
+          ansible-playbook playbook.yaml
