@@ -44,7 +44,7 @@ jobs:
       - name: Create a hosts file with all targets
         run: |
           cd TF/
-          echo ${{secrets.KEY_PEM}} > key.pem
+          echo "${{secrets.KEY_PEM}}" > key.pem
           sudo chmod u+x key.pem
           echo "[BotTelegram]" > temp_hosts
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
