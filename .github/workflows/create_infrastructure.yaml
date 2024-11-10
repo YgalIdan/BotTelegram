@@ -26,15 +26,15 @@ jobs:
           terraform -v
 
       - name: Create infrastructure on AWS 
+        id: get_ips
         run: |
           cd TF/
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
+          echo "::set-output name=LIST_IP_BOTS::$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')"
+          echo "::set-output name=LIST_IP_YOLOV5::aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text"
 
       - name: Get ip's public for all EC2
         run: |
-          cd TF/
-          list_ip_bots=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
-          list_ip_yolo=aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text
-          echo $list_ip_bots
-          echo $list_ip_yolo
+          echo ${{steps.get_ips.outputs.LIST_IP_BOTS}}
+          echo ${{steps.get_ips.outputs.LIST_IP_YOLOV5}}
