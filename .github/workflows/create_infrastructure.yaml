@@ -31,7 +31,7 @@ jobs:
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
 
-      - mame: Get ips public for all EC2
+      - name: Get ip's public for all EC2
         run: |         
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]') >> $GITHUB_ENV
           for ip in $ip_list; do
