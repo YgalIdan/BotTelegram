@@ -46,11 +46,15 @@ jobs:
           cd TF/
           echo "[BotTelegram]" > temp_hosts
           ip_list=$(terraform output -json ip_ec2_list_botTelegram | jq -r '.[]')
+          echo "${{secrets.KEY_PEM}}" > key.pem
+          sudo chmod 400 key.pem
           for ip in $ip_list; do
+            ssh -i key.pem ubunutu@$ip "whoami"
             echo "$ip" >> temp_hosts
           done
           
           echo "[YOLOv5]" >> temp_hosts
+          ssh -i key.pem ubunutu@${{steps.get_ips.outputs.LIST_IP_YOLOV5}} "whoami"
           echo "${{steps.get_ips.outputs.LIST_IP_YOLOV5}}" >> temp_hosts
           cat temp_hosts
           sudo mv temp_hosts /etc/ansible/hosts
