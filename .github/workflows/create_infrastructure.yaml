@@ -65,3 +65,4 @@ jobs:
           echo "${{secrets.KEY_PEM}}" > key.pem
           sudo chmod 400 key.pem
           ansible-playbook playbook.yaml --private-key key.pem
+          
