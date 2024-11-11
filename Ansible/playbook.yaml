@@ -1,7 +1,7 @@
 ---
 - name: Install Docker
   become: true
-  hosts: all
+  hosts: BotTelegram:YOLOv5
   tasks:
     - name: Update and install docker
       shell:  |
