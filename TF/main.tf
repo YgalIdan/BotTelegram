@@ -112,7 +112,7 @@ resource "aws_iam_instance_profile" "BotTelegram_instanceprofile" {
 }
 
 resource "aws_instance" "BotTelegram_ec2" {
-  count                  = 1
+  count                  = 2
   ami                    = var.ami_id
   iam_instance_profile   = aws_iam_instance_profile.BotTelegram_instanceprofile.name
   instance_type          = var.instance_type
