@@ -31,7 +31,7 @@
   tasks:
     - name: Run BotTelegram Docker container
       shell:  |
-        docker run -d --restart always -p 8443:8443 ygalidan/bottelegram:v1.0.3
+        docker run -d --restart always -p 8443:8443 ygalidan/bottelegram
 
 - name: Attach the image YOLOv5 to EC2
   become: true
@@ -39,4 +39,4 @@
   tasks:
     - name: Run YOLOv5 Docker container
       shell:  |
-        docker run -d --restart always ygalidan/yolo5:v1.0.0
+        docker run -d --restart always ygalidan/yolo5
