@@ -12,7 +12,7 @@ on:
           - DestroyInfra
 
 jobs:
-  CreateInfra:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo code
@@ -37,7 +37,7 @@ jobs:
           cd TF/
           terraform init -upgrade
           terraform destroy -var-file region_us-east-1.tfvars -auto-approve
-          
+
       - name: Create infrastructure on AWS
         if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         id: get_ips
