@@ -10,9 +10,9 @@ on:
         options:
           - CreateInfra
           - DestroyInfra
-  push:
-    brances:
-      - play
+  # push:
+  #   brances:
+  #     - play
 
 jobs:
   CreateInfra:
