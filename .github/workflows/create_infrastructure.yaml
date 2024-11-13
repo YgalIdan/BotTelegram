@@ -1,6 +1,15 @@
-name: Create infra on AWS
+name: Infrastructure AWS
 
 on:
+  workflow_dispatch:
+    inputs:
+      workflow_type:
+        description: "Select apply or destroy the infra:"
+        required: true
+        type: choise
+        options:
+          - CreateInfra
+          - DestroyInfra
   push:
     brances:
       - play
@@ -25,7 +34,8 @@ jobs:
           sudo apt update && sudo apt install terraform
           terraform -v
 
-      - name: Create infrastructure on AWS 
+      - name: Create infrastructure on AWS
+        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         id: get_ips
         run: |
           cd TF/
@@ -33,7 +43,15 @@ jobs:
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
           echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
 
+      - name: Destroy infrastructure on AWS 
+        if: ${{github.event.inputs.workflow_type == 'DestroyInfra'}}
+        run: |
+          cd TF/
+          terraform init -upgrade
+          terraform destroy -var-file region_us-east-1.tfvars -auto-approve
+
       - name: Install Ansible
+        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         run: |
           sudo apt update
           sudo apt install software-properties-common
@@ -42,6 +60,7 @@ jobs:
           ansible --version
 
       - name: Create a hosts file with all targets
+        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         run: |
           cd TF/
           echo "[BotTelegram]" > temp_hosts
@@ -60,6 +79,7 @@ jobs:
           sudo mv temp_hosts /etc/ansible/hosts
       
       - name: Instal docker images per EC2
+        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         run: |
           cd Ansible/
           echo "${{secrets.KEY_PEM}}" > key.pem
