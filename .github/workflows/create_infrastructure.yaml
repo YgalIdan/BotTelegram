@@ -6,7 +6,7 @@ on:
       workflow_type:
         description: "Select apply or destroy the infra:"
         required: true
-        type: choise
+        type: choice
         options:
           - CreateInfra
           - DestroyInfra
