@@ -10,9 +10,6 @@ on:
         options:
           - CreateInfra
           - DestroyInfra
-  # push:
-  #   brances:
-  #     - play
 
 jobs:
   CreateInfra:
@@ -34,6 +31,13 @@ jobs:
           sudo apt update && sudo apt install terraform
           terraform -v
 
+      - name: Destroy infrastructure on AWS 
+        if: ${{github.event.inputs.workflow_type == 'DestroyInfra'}}
+        run: |
+          cd TF/
+          terraform init -upgrade
+          terraform destroy -var-file region_us-east-1.tfvars -auto-approve
+          
       - name: Create infrastructure on AWS
         if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
         id: get_ips
@@ -42,13 +46,6 @@ jobs:
           terraform init -upgrade
           terraform apply -var-file region_us-east-1.tfvars -auto-approve
           echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
-
-      - name: Destroy infrastructure on AWS 
-        if: ${{github.event.inputs.workflow_type == 'DestroyInfra'}}
-        run: |
-          cd TF/
-          terraform init -upgrade
-          terraform destroy -var-file region_us-east-1.tfvars -auto-approve
 
       - name: Install Ansible
         if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
