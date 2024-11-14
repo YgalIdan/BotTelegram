@@ -1,4 +1,7 @@
-<div algin="center">[![LinkedIn][linkedin-shield]][linkedin-url] </div>
+<div align="center">
+  [![LinkedIn][linkedin-shield]][linkedin-url]
+</div>
+
 # Project: Bot Telegram
 ## Services: AWS, Ansible
 
