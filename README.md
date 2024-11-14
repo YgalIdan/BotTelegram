@@ -1,10 +1,7 @@
-<div align="center">
-  [![LinkedIn][linkedin-shield]][linkedin-url]
-</div>
-
-# Project: Bot Telegram
-## Services: AWS, Ansible
-
-<!-- LINKS & IMAGES -->
-[linkedin-shield]: https://www.flaticon.com/free-icon/linkedin_174857
-[linkedin-url]: https://linkedin.com/in/ygalidan
+# Project Bot Telegram
+## Services:
+1. AWS
+2. Terraform
+3. Ansible
+4. Docker
+5. Proccess CI/CD with GitHub Action
