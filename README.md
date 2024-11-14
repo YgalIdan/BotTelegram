@@ -1,4 +1,4 @@
-# Bot Telegram: Find Object In Photo - DevOps
+# Bot Telegram: Find Objects In Photo - DevOps
 ## Table of contents
   1. [About the project](https://github.com/YgalIdan/BotTelegram#About-the-project)
   2. [Skills demonstrated](https://github.com/YgalIdan/BotTelegram#Skills-demonstrated)
