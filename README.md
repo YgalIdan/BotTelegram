@@ -1,4 +1,4 @@
-<div algin="center">[![LinkedIn][linkedin-shield]][linkedin-url] </algin>
+<div algin="center">[![LinkedIn][linkedin-shield]][linkedin-url] </div>
 # Project: Bot Telegram
 ## Services: AWS, Ansible
 
