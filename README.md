@@ -25,16 +25,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   Leveraged AWS services for reliable and scalable deployment of infrastructure and application components.
 
 ## Technologies used
-<html>
-<head>
-<style>
-  .centered-div {
-    background-color: blue;
-  }
-</style>
-</head>
-<body>
-<div class="centered-div" align="center">
+<div align="center">
   <img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="75" height="75">&nbsp;&nbsp;
@@ -42,8 +33,6 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   <img src="https://icon.icepanel.io/Technology/svg/GitHub.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/Linux.svg" width="75" height="75">
 </div>
-</body>
-</html>
 
 - **AWS Services:**  
   <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="20" height="20"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.  
