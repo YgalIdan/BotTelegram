@@ -25,19 +25,21 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   Leveraged AWS services for reliable and scalable deployment of infrastructure and application components.
 
 ## Technologies used
+<img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="20" height="20"> <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="20" height="20"> <img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="20" height="20"> <img src="https://icon.icepanel.io/Technology/svg/GitHub.svg" width="20" height="20"> <img src="https://icon.icepanel.io/Technology/svg/Bash.svg" width="20" height="20">
+
 - **AWS Services:**  
-  - <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="20" height="20"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Virtual-Private-Cloud.svg" width="20" height="20"> **VPC** (Virtual Private Cloud): For secure and isolated networking within AWS.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="20" height="20"> **S3 Bucket:** For object storage and static file hosting.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" width="20" height="20"> **DynamoDB:** A NoSQL database for fast and flexible data management.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Security Groups:** For controlling inbound and outbound traffic to AWS resources.  
-  - <img src="https://d2q66yyjeovezo.cloudfront.net/icon/0ebc580ae6450fce8762fad1bff32e7b-0841c1f0e7c5788b88d07a7dbcaceb6e.svg" width="20" height="20"> **IAM Roles & Policies:** For secure authentication and fine-grained access control.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Instance Profile:** For attaching IAM roles to EC2 instances.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Load Balancer & Target Groups:** For distributing incoming traffic across instances.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Security-Identity-Compliance/Certificate-Manager.svg" width="20" height="20"> **ACM** (AWS Certificate Manager): For managing SSL/TLS certificates.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Route-53.svg" width="20" height="20"> **Route53:** For domain management and routing.  
-  - <img src="https://icon.icepanel.io/AWS/svg/Compute/Application-Auto-Scaling.svg" width="20" height="20"> **Auto Scaling Groups:** For maintaining high availability and scaling EC2 instances automatically.  
-- <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="20" height="20"> **Terraform:**
+  <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="20" height="20"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.  
+  <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Virtual-Private-Cloud.svg" width="20" height="20"> **VPC** (Virtual Private Cloud): For secure and isolated networking within AWS.  
+  <img src="https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg" width="20" height="20"> **S3 Bucket:** For object storage and static file hosting.  
+  <img src="https://icon.icepanel.io/AWS/svg/Database/DynamoDB.svg" width="20" height="20"> **DynamoDB:** A NoSQL database for fast and flexible data management.  
+  <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Security Groups:** For controlling inbound and outbound traffic to AWS resources.  
+  <img src="https://d2q66yyjeovezo.cloudfront.net/icon/0ebc580ae6450fce8762fad1bff32e7b-0841c1f0e7c5788b88d07a7dbcaceb6e.svg" width="20" height="20"> **IAM Roles & Policies:** For secure authentication and fine-grained access control.  
+  <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Instance Profile:** For attaching IAM roles to EC2 instances.  
+  <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Load Balancer & Target Groups:** For distributing incoming traffic across instances.  
+  <img src="https://icon.icepanel.io/AWS/svg/Security-Identity-Compliance/Certificate-Manager.svg" width="20" height="20"> **ACM** (AWS Certificate Manager): For managing SSL/TLS certificates.  
+  <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Route-53.svg" width="20" height="20"> **Route53:** For domain management and routing.  
+  <img src="https://icon.icepanel.io/AWS/svg/Compute/Application-Auto-Scaling.svg" width="20" height="20"> **Auto Scaling Groups:** For maintaining high availability and scaling EC2 instances automatically.  
+- **Terraform:**
   Used for Infrastructure as Code (IaC) to provision and manage the AWS resources programmatically.
 - **Ansible:**
 For configuration management, automated provisioning, and Docker installation on EC2 instances.
