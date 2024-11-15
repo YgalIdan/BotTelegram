@@ -25,7 +25,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   Leveraged AWS services for reliable and scalable deployment of infrastructure and application components.
 
 ## Technologies used
-<div align="center"><img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="50" height="50"><img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="50" height="50"> <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="50" height="50"> <img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="50" height="50"> <img src="https://www.iconsdb.com/icons/preview/white/github-11-xxl.png" width="50" height="50"> <img src="https://icon.icepanel.io/Technology/svg/Linux.svg" width="50" height="50"></div>
+<div align="center"><img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75"> <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75"> <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="75" height="75"> <img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="75" height="75"> <img src="https://www.iconsdb.com/icons/preview/white/github-11-xxl.png" width="75" height="75"> <img src="https://icon.icepanel.io/Technology/svg/Linux.svg" width="75" height="75"></div>
 
 - **AWS Services:**  
   <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="20" height="20"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.  
