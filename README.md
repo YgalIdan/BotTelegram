@@ -63,4 +63,9 @@ The workflow demonstrates the integration of multiple advanced technologies to a
 
 ## Getting started
 ## Usage
+![Exem 1](.images_readme/exem1.jpg)
+![Exem 2](.images_readme/exem1.jpg)
+![Exem 3](.images_readme/exem1.jpg)
+![Exem 4](.images_readme/exem1.jpg)
+
 ## Future improvements
