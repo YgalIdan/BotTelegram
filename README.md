@@ -26,11 +26,13 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
 
 ## Technologies used
 <html>
+<head>
 <style>
   .centered-div {
     background-color: blue;
   }
 </style>
+</head>
 <div class="centered-div" align="center">
   <img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75">&nbsp;&nbsp;
