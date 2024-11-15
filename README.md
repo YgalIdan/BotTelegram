@@ -28,7 +28,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
 <html>
 <style>
   .centered-div {
-    background-color: white;
+    background-color: blue;
   }
 </style>
 <div class="centered-div" align="center">
