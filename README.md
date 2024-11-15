@@ -39,7 +39,8 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
     <img src="https://icon.icepanel.io/AWS/svg/Compute/Application-Auto-Scaling.svg" width="20" height="20"> 
     <strong>Auto Scaling Groups:</strong> For maintaining high availability and scaling EC2 instances automatically.
-  </div>- **Terraform:**
+  </div>
+- **Terraform:**
   Used for Infrastructure as Code (IaC) to provision and manage the AWS resources programmatically.
 - **Ansible:**
 For configuration management, automated provisioning, and Docker installation on EC2 instances.
