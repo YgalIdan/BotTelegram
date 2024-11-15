@@ -26,7 +26,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
 
 ## Technologies used
 - **AWS Services:**
-  - <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="10" height="10"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.
+  - <img src="https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg" width="20" height="20"> **SQS** (Simple Queue Service): For message queuing and decoupling of application components.
   - **VPC** (Virtual Private Cloud): For secure and isolated networking within AWS.
   - **S3 Bucket:** For object storage and static file hosting.
   - **DynamoDB:** A NoSQL database for fast and flexible data management.
