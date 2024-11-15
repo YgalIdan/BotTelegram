@@ -1,11 +1,11 @@
 # Bot Telegram: Find Objects In Photo - DevOps
 ## Table of contents
-  1. [About the project](https://github.com/YgalIdan/BotTelegram#About-the-project)
-  2. [Skills demonstrated](https://github.com/YgalIdan/BotTelegram#Skills-demonstrated)
+  1. [About the project](#About-the-project)
+  2. [Skills demonstrated](#Skills-demonstrated)
   3. [Technologies used](#Technologies-used)
-  4. [Getting started](https://github.com/YgalIdan/BotTelegram#Getting-started)
-  5. [Usage](https://github.com/YgalIdan/BotTelegram#Usage)
-  7. [Future improvements](https://github.com/YgalIdan/BotTelegram#Future-improvements)
+  4. [Getting started](#Getting-started)
+  5. [Usage](#Usage)
+  7. [Future improvements](#Future-improvements)
 
 ## About the project
 This project showcases a Telegram bot capable of analyzing images sent to it. Using the YOLOv5 AI model, the bot detects objects in the image and returns a list of identified objects to the user. The project demonstrates advanced DevOps capabilities, including infrastructure provisioning as code (IaC) in AWS using Terraform. The connection process is managed with Ansible, which connects to each EC2 instance and deploys the relevant Docker container, whether it is the AI model or the Telegram bot server.
@@ -26,7 +26,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
 
 ## Technologies used
 - **AWS Services:**
-  - **SQS** (Simple Queue Service): For message queuing and decoupling of application components.
+  - ![**SQS**](https://icon.icepanel.io/AWS/svg/App-Integration/Simple-Queue-Service.svg) (Simple Queue Service): For message queuing and decoupling of application components.
   - **VPC** (Virtual Private Cloud): For secure and isolated networking within AWS.
   - **S3 Bucket:** For object storage and static file hosting.
   - **DynamoDB:** A NoSQL database for fast and flexible data management.
@@ -37,22 +37,16 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   - **ACM** (AWS Certificate Manager): For managing SSL/TLS certificates.
   - **Route53:** For domain management and routing.
   - **Auto Scaling Groups:** For maintaining high availability and scaling EC2 instances automatically.
-
 - **Terraform:**
   Used for Infrastructure as Code (IaC) to provision and manage the AWS resources programmatically.
-
 - **Ansible:**
 For configuration management, automated provisioning, and Docker installation on EC2 instances.
-
 - **Docker:**
   Containerization platform used to package and deploy the AI model and Telegram bot server on the EC2 instances.
-
 - **SSH:**
   Secure protocol used for verifying EC2 instance accessibility and testing connectivity.
-
 - **GitHub Actions:**
   CI/CD tool for automating the deployment process, including provisioning AWS infrastructure and managing Docker container deployments.
-
 - **Linux Command-Line Tools:**
   Used for IP collection, SSH connectivity testing, and generating Ansible host files.
 ### Summary
