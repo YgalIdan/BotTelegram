@@ -56,7 +56,7 @@ For configuration management, automated provisioning, and Docker installation on
 
 - **Linux Command-Line Tools:**
   Used for IP collection, SSH connectivity testing, and generating Ansible host files.
-
+### Summary
 The workflow demonstrates the integration of multiple advanced technologies to automate the deployment of a complex infrastructure. It combines the power of Terraform for IaC, AWS for cloud resources, Ansible for provisioning and configuration, Docker for containerization, and GitHub Actions for CI/CD automation.
 
 ## Getting started
