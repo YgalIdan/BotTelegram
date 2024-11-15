@@ -33,6 +33,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   }
 </style>
 </head>
+<body>
 <div class="centered-div" align="center">
   <img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75">&nbsp;&nbsp;
@@ -41,6 +42,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   <img src="https://icon.icepanel.io/Technology/svg/GitHub.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/Linux.svg" width="75" height="75">
 </div>
+</body>
 </html>
 
 - **AWS Services:**  
