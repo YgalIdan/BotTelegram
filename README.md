@@ -36,8 +36,10 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   <img src="https://icon.icepanel.io/AWS/svg/Compute/EC2.svg" width="20" height="20"> **Load Balancer & Target Groups:** For distributing incoming traffic across instances.  
   <img src="https://icon.icepanel.io/AWS/svg/Security-Identity-Compliance/Certificate-Manager.svg" width="20" height="20"> **ACM** (AWS Certificate Manager): For managing SSL/TLS certificates.  
   <img src="https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Route-53.svg" width="20" height="20"> **Route53:** For domain management and routing.  
-  <img src="https://icon.icepanel.io/AWS/svg/Compute/Application-Auto-Scaling.svg" width="20" height="20"> **Auto Scaling Groups:** For maintaining high availability and scaling EC2 instances automatically.  
-- **Terraform:**
+  <div style="display: flex; justify-content: center; align-items: center; text-align: center;">
+    <img src="https://icon.icepanel.io/AWS/svg/Compute/Application-Auto-Scaling.svg" width="20" height="20"> 
+    <strong>Auto Scaling Groups:</strong> For maintaining high availability and scaling EC2 instances automatically.
+  </div>- **Terraform:**
   Used for Infrastructure as Code (IaC) to provision and manage the AWS resources programmatically.
 - **Ansible:**
 For configuration management, automated provisioning, and Docker installation on EC2 instances.
