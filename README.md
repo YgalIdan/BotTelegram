@@ -62,10 +62,12 @@ For configuration management, automated provisioning, and Docker installation on
 The workflow demonstrates the integration of multiple advanced technologies to automate the deployment of a complex infrastructure. It combines the power of Terraform for IaC, AWS for cloud resources, Ansible for provisioning and configuration, Docker for containerization, and GitHub Actions for CI/CD automation.
 
 ## Getting started
+
+
 ## Usage
 ![Exem 1](.images_readme/exem1.jpg)
-![Exem 2](.images_readme/exem1.jpg)
-![Exem 3](.images_readme/exem1.jpg)
-![Exem 4](.images_readme/exem1.jpg)
+![Exem 2](.images_readme/exem2.jpg)
+![Exem 3](.images_readme/exem3.jpg)
+![Exem 4](.images_readme/exem4.jpg)
 
 ## Future improvements
