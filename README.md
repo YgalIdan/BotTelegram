@@ -25,7 +25,7 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
   Leveraged AWS services for reliable and scalable deployment of infrastructure and application components.
 
 ## Technologies used
-<div style="background-color: white" align="center">
+<div style="background-color:white">
   <img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75">&nbsp;&nbsp;
   <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="75" height="75">&nbsp;&nbsp;
