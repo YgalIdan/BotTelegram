@@ -78,14 +78,14 @@ Define the following four GitHub Secrets in your repository:
 Create a new Secret in AWS Secrets Manager with the following details:
 1. Region: `us-east-1` (default).
 2. Secret name: `BotTelegram/token`.
-[!NOTE]
-If you choose a different Secret name or Region, update the code accordingly. This can be done in the `get_secret()` function located in 
-```text 
-/ (root)
-|
-├── polybot/
-    ├── app.py
-```
+> [!NOTE]
+> If you choose a different Secret name or Region, update the code accordingly. This can be done in the `get_secret()` function located in 
+> ```text 
+> / (root)
+> |
+> ├── polybot/
+>     ├── app.py
+> ```
 
 Update the bot domain in the code:
 In the `/polybot/app.py` file, at line 33, replace the domain `polybot.xxx.xxx` with your actual domain.
