@@ -175,7 +175,7 @@ resource "aws_route53_record" "BotTelegram_route53" {
 }
 
 resource "aws_launch_template" "yolov5_template" {
-  name                    = "BotTelegram-template"
+  name                    = "YOLOv5-template"
   image_id                = var.ami_id
   key_name                = var.key_name
   instance_type           = "t2.medium"
