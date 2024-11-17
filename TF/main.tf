@@ -175,7 +175,7 @@ resource "aws_route53_record" "BotTelegram_route53" {
   }
 }
 
-resource "aws_launch_template" "BotTelegram_template" {
+resource "aws_launch_template" "yolov5_template" {
   name                    = "BotTelegram-template"
   image_id                = var.ami_id
   key_name                = var.key_name
@@ -188,18 +188,18 @@ resource "aws_launch_template" "BotTelegram_template" {
   tag_specifications {
     resource_type = "instance"
     tags           = {
-      Name        = "BotTelegram-instance"
+      Name        = "YOLOv5"
     }
   }
 }
 
-resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
-  name                = "BotTelegram-AutoScaling"
+resource "aws_autoscaling_group" "YOLOv5_autoscaling" {
+  name                = "YOLOv5-AutoScaling"
   min_size            = 1
   max_size            = 3
   vpc_zone_identifier = module.BotTelegram_vpc.public_subnets
   launch_template {
-    id      = aws_launch_template.BotTelegram_template.id
+    id      = aws_launch_template.yolov5_template.id
     version = "$Latest"
   }
 }
@@ -207,9 +207,9 @@ resource "aws_autoscaling_group" "BotTelegram_autoscaling" {
 data "aws_instances" "BotTelegram_yolov5" {
   filter {
     name    = "tag:Name"
-    values  = ["BotTelegram-instance"]
+    values  = ["YOLOv5"]
   }
-  depends_on = [aws_autoscaling_group.BotTelegram_autoscaling]
+  depends_on = [aws_autoscaling_group.YOLOv5_autoscaling]
 }
 
 output "ip_ec2_list_botTelegram" {
