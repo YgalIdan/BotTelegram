@@ -79,7 +79,7 @@ Create a new Secret in AWS Secrets Manager with the following details:
 1. Region: `us-east-1` (default).
 2. Secret name: `BotTelegram/token`.
 > [!NOTE]
-> If you choose a different Secret name or Region, update the code accordingly. This can be done in the `get_secret()` function located in 
+> If you choose a different Secret name or Region, update the code accordingly. This can be done in the `get_secret()` function located in `/polybot/app.py`
 > ```text 
 > / (root)
 > |
