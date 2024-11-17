@@ -117,7 +117,6 @@ resource "aws_instance" "BotTelegram_ec2" {
   iam_instance_profile   = aws_iam_instance_profile.BotTelegram_instanceprofile.name
   instance_type          = var.instance_type
   key_name               = var.key_name
-  # user_data              = file("./deploy.sh")
   subnet_id              = module.BotTelegram_vpc.public_subnets[count.index % length(var.subnet_public_cidr)]
   vpc_security_group_ids = [aws_security_group.BotTelegram_sg.id]
 
@@ -141,8 +140,8 @@ resource "aws_lb" "BotTelegram_lb" {
 }
 
 resource "aws_acm_certificate" "BotTelegram_cert" {
-  domain_name               = "ygdn.online"
-  subject_alternative_names = ["ygdn.online", "*.ygdn.online"]
+  domain_name               = var.domain
+  subject_alternative_names = ["${var.domain}", "*.${var.domain}"]
   validation_method         = "DNS"
 }
 
@@ -166,7 +165,7 @@ resource "aws_lb_target_group_attachment" "BotTelegram_attach" {
 
 resource "aws_route53_record" "BotTelegram_route53" {
   zone_id = "Z026964130U73763VT0A4"
-  name    = "polybot.ygdn.online"
+  name    = "polybot.${var.domain}"
   type    = "A"
   alias {
     name                    = aws_lb.BotTelegram_lb.dns_name
@@ -180,7 +179,6 @@ resource "aws_launch_template" "yolov5_template" {
   image_id                = var.ami_id
   key_name                = var.key_name
   instance_type           = "t2.medium"
-  # user_data               = filebase64("./deploy_template.sh")
   vpc_security_group_ids  = [aws_security_group.BotTelegram_sg.id]
   iam_instance_profile    {
     name  = aws_iam_instance_profile.BotTelegram_instanceprofile.name
