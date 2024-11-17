@@ -45,7 +45,7 @@ jobs:
           cd TF/
           terraform init -upgrade
           terraform apply -var-file infra-vars.tfvars -auto-approve
-          echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
+          echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=YOLOv5" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
 
       - name: Install Ansible
         if: ${{github.event.inputs.workflow_type == 'Create'}}
