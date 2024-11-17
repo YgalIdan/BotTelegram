@@ -73,7 +73,7 @@ Define the following four GitHub Secrets in your repository:
 2. `SECRET_ACCESS_KEY` – contains the Secret Key for your AWS account.
 3. `REGION` – specifies the region where the infrastructure will be deployed (e.g., `us-east-1`).
 4. `KEY_PEM` – contains the private SSH key for connecting to the EC2 instances.
-> [!NOTE]
+> [!IMPORTANT]
 > Ensure that the user associated with the ACCESS_KEY_ID and SECRET_ACCESS_KEY has sufficient permissions to perform operations on all AWS services listed in the [Technologies used](#Technologies-used) section under AWS Services.
 
 ### Store the Telegram Bot Token in AWS Secrets Manager:
