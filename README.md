@@ -5,7 +5,6 @@
   3. [Technologies used](#Technologies-used)
   4. [Getting started](#Getting-started)
   5. [Usage](#Usage)
-  7. [Future improvements](#Future-improvements)
 
 ## About the project
 This project showcases a Telegram bot capable of analyzing images sent to it. Using the YOLOv5 AI model, the bot detects objects in the image and returns a list of identified objects to the user. The project demonstrates advanced DevOps capabilities, including infrastructure provisioning as code (IaC) in AWS using Terraform. The connection process is managed with Ansible, which connects to each EC2 instance and deploys the relevant Docker container, whether it is the AI model or the Telegram bot server.
@@ -101,5 +100,3 @@ Once these steps are completed, the program will be ready to run.
 ![Exem 1](.images_readme/exem1.jpg)
 ![Exem 2](.images_readme/exem2.jpg)
 ![Exem 3](.images_readme/exem3.jpg)
-
-## Future improvements
