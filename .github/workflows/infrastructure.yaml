@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       workflow_type:
-        description: "Select apply or destroy the infra:"
+        description: "Select create or destroy the infra:"
         required: true
         type: choice
         options:
-          - CreateInfra
-          - DestroyInfra
+          - Create
+          - Destroy
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
         run: |
           aws configure set aws_access_key_id "${{secrets.AWS_ACCESS_KEY_ID}}"
           aws configure set aws_secret_access_key "${{secrets.AWS_SECRET_ACCESS_KEY}}"
-          aws configure set region us-east-1
+          aws configure set region "${{secrets.AWS_SECRET_REGION}}"
         
       - name: Install TF
         run: |
@@ -32,23 +32,23 @@ jobs:
           terraform -v
 
       - name: Destroy infrastructure on AWS 
-        if: ${{github.event.inputs.workflow_type == 'DestroyInfra'}}
+        if: ${{github.event.inputs.workflow_type == 'Destroy'}}
         run: |
           cd TF/
           terraform init -upgrade
-          terraform destroy -var-file region_us-east-1.tfvars -auto-approve
+          terraform destroy -var-file infra-vars.tfvars -auto-approve
 
       - name: Create infrastructure on AWS
-        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
+        if: ${{github.event.inputs.workflow_type == 'Create'}}
         id: get_ips
         run: |
           cd TF/
           terraform init -upgrade
-          terraform apply -var-file region_us-east-1.tfvars -auto-approve
+          terraform apply -var-file infra-vars.tfvars -auto-approve
           echo "LIST_IP_YOLOV5=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=BotTelegram-instance" --query "Reservations[*].Instances[*].PublicIpAddress" --output text)" >> "$GITHUB_OUTPUT"
 
       - name: Install Ansible
-        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
+        if: ${{github.event.inputs.workflow_type == 'Create'}}
         run: |
           sudo apt update
           sudo apt install software-properties-common
@@ -57,7 +57,7 @@ jobs:
           ansible --version
 
       - name: Create a hosts file with all targets
-        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
+        if: ${{github.event.inputs.workflow_type == 'Create'}}
         run: |
           cd TF/
           echo "[BotTelegram]" > temp_hosts
@@ -76,7 +76,7 @@ jobs:
           sudo mv temp_hosts /etc/ansible/hosts
       
       - name: Instal docker images per EC2
-        if: ${{github.event.inputs.workflow_type == 'CreateInfra'}}
+        if: ${{github.event.inputs.workflow_type == 'Create'}}
         run: |
           cd Ansible/
           echo "${{secrets.KEY_PEM}}" > key.pem
