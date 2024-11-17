@@ -43,3 +43,8 @@ variable "dynamodb_name" {
 variable "arn_roles_to_iam" {
    type        =  list
 }
+
+# ROUTE53
+variable "domain" {
+   type        =  string
+}

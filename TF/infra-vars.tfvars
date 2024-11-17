@@ -13,3 +13,4 @@ arn_roles_to_iam    =   ["arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
                          "arn:aws:iam::aws:policy/AmazonSQSFullAccess", 
                          "arn:aws:iam::aws:policy/AmazonVPCFullAccess", 
                          "arn:aws:iam::aws:policy/SecretsManagerReadWrite"]
+domain              =   "ygdn.online"
