@@ -28,7 +28,6 @@ def get_secret():
     secret = json.loads(secret)
     return secret["token_telegram"]
 
-# TODO load TELEGRAM_TOKEN value from Secret Manager
 TELEGRAM_TOKEN = get_secret()
 # TELEGRAM_APP_URL = os.environ['TELEGRAM_APP_URL']
 TELEGRAM_APP_URL = 'https://polybot.ygdn.online'
