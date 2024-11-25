@@ -103,4 +103,4 @@ Once these steps are completed, the program will be ready to run.
 ![Exem 3](.images_readme/exem3.jpg)
 
 ## Architecture
-~[Architecture](.Photos/Architecture.png)
+![Architecture](.Photos/Architecture.png)
