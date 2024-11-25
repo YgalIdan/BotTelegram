@@ -5,6 +5,7 @@
   3. [Technologies used](#Technologies-used)
   4. [Getting started](#Getting-started)
   5. [Usage](#Usage)
+  6. [Architecture](#Architecture)
 
 ## About the project
 This project showcases a Telegram bot capable of analyzing images sent to it. Using the YOLOv5 AI model, the bot detects objects in the image and returns a list of identified objects to the user. The project demonstrates advanced DevOps capabilities, including infrastructure provisioning as code (IaC) in AWS using Terraform. The connection process is managed with Ansible, which connects to each EC2 instance and deploys the relevant Docker container, whether it is the AI model or the Telegram bot server.
@@ -25,12 +26,12 @@ This project showcases a Telegram bot capable of analyzing images sent to it. Us
 
 ## Technologies used
 <div align="center">
-  <img src="https://icon.icepanel.io/Technology/svg/AWS.svg" width="75" height="75">&nbsp;&nbsp;
-  <img src="https://icon.icepanel.io/Technology/svg/HashiCorp-Terraform.svg" width="75" height="75">&nbsp;&nbsp;
-  <img src="https://icon.icepanel.io/Technology/svg/Ansible.svg" width="75" height="75">&nbsp;&nbsp;
-  <img src="https://icon.icepanel.io/Technology/svg/Docker.svg" width="75" height="75">&nbsp;&nbsp;
-  <img src="https://icon.icepanel.io/Technology/svg/GitHub.svg" width="75" height="75">&nbsp;&nbsp;
-  <img src="https://icon.icepanel.io/Technology/svg/Linux.svg" width="75" height="75">
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/aws.svg" width="75" height="75">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/terraform.svg" width="75" height="75">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/ansible.svg" width="75" height="75">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/docker.svg" width="75" height="75">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/github.svg" width="75" height="75">&nbsp;&nbsp;
+  <img src="https://raw.githubusercontent.com/YgalIdan/YgalIdan.github.io/831c872f3615eaf1fda65c47a41e645bf1f3a909/Photos/linux.svg" width="75" height="75">
 </div>
 
 - **AWS Services:**  
@@ -100,3 +101,6 @@ Once these steps are completed, the program will be ready to run.
 ![Exem 1](.images_readme/exem1.jpg)
 ![Exem 2](.images_readme/exem2.jpg)
 ![Exem 3](.images_readme/exem3.jpg)
+
+## Architecture
+~[Architecture](.Photos/Architecture.png)
